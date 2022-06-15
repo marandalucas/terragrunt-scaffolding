@@ -24,6 +24,13 @@ dependency "vpc" {
 locals {
   purpose = "fargate"
   name    = format("%s-%s-%s-%s", include.locals.area_code, include.locals.account_name, include.locals.environment_short_name, local.purpose)
+  tags = {
+    Terraform   = "true"
+    Area        = include.locals.area_code
+    Account     = include.locals.account_name
+    Environment = include.locals.environment_name
+    Region      = include.locals.region_name
+  }
 }
 inputs = {
 
@@ -77,11 +84,5 @@ inputs = {
     }
   ]
 
-  tags = {
-    Terraform   = "true"
-    Area        = include.locals.area_code
-    Account     = include.locals.account_name
-    Environment = include.locals.environment_name
-    Region      = include.locals.region_name
-  }
+  tags = local.tags
 }
