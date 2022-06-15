@@ -8,7 +8,6 @@ include {
   merge_strategy = "deep"
 }
 
-
 dependency "vpc" {
   config_path                             = "../../vpc/vpc-fargate/"
   mock_outputs_allowed_terraform_commands = ["plan", "validate"]
@@ -32,6 +31,7 @@ locals {
     Region      = include.locals.region_name
   }
 }
+
 inputs = {
 
   create_lb = true

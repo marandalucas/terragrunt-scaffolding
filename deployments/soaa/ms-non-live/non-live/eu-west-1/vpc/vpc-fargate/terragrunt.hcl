@@ -1,5 +1,5 @@
 terraform {
-  source = "github.com/marandalucas/terraform-aws-vpc.git//.?ref=v0.1.0"
+  source = "github.com/marandalucas/terraform-aws-vpc.git//.?ref=v0.2.0"
 }
 
 include {
@@ -20,6 +20,7 @@ locals {
     Region      = include.locals.region_name
   }
 }
+
 inputs = {
 
   create = true
@@ -49,7 +50,6 @@ inputs = {
   instance_tenancy     = "default"
   enable_dns_support   = true
   enable_dns_hostnames = false
-
 
   tags = local.tags
 }
